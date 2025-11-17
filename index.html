@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coletor de Moedas - RA</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/aframe/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 100;
+            min-width: 200px;
+        }
+        #score {
+            color: #FFD700;
+        }
+        #status {
+            font-size: 14px;
+            color: #00FF00;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <div>💰 Moedas: <span id="score">0</span></div>
+        <div>🎁 Baús: <span id="chests">0</span></div>
+        <div id="status">Aguardando câmera...</div>
+    </div>
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <!-- Câmera -->
+        <a-camera gps-camera rotation-reader></a-camera>
+
+        <!-- Iluminação -->
+        <a-light type="ambient" color="#ffffff" intensity="1"></a-light>
+        <a-light type="directional" color="#ffffff" intensity="1" position="0 1 1"></a-light>
+
+        <!-- Moedas geradas aleatoriamente -->
+        <a-entity id="coins-container"></a-entity>
+
+        <!-- Baús gerados aleatoriamente -->
+        <a-entity id="chests-container"></a-entity>
+
+        <!-- Plano de referência (opcional) -->
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#333" opacity="0.3"></a-plane>
+    </a-scene>
+
+    <script src="game.js"></script>
+</body>
+</html>
