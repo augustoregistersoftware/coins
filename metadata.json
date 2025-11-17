@@ -1,7 +1,0 @@
-{
-  "name": "AR Treasure Hunt",
-  "description": "An augmented reality treasure hunt game where you collect coins and chests in the real world through your device's camera.",
-  "requestFramePermissions": [
-    "camera"
-  ]
-}
