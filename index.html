@@ -26,8 +26,10 @@
 
     <!-- AR Scene -->
     <!-- arjs property configures the AR session. sourceType: webcam uses the phone camera. -->
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false"
-        renderer="logarithmicDepthBuffer: true;">
+    <!-- Using VGA resolution (640x480) to fix mobile zoom while maintaining compatibility -->
+    <a-scene embedded
+        arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth:640; sourceHeight:480; displayWidth: 640; displayHeight: 480;"
+        vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
 
         <!-- Camera with cursor for interaction -->
         <a-entity camera look-controls>
