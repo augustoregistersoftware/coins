@@ -18,7 +18,23 @@
 
     <!-- HUD Overlay -->
     <div id="hud">
-        </a-entity>
+        <div id="score-container">
+            Coins: <span id="score">0</span>
+        </div>
+        <button id="reset-btn">Reset Coins</button>
+    </div>
+
+    <!-- AR Scene -->
+    <!-- arjs property configures the AR session. sourceType: webcam uses the phone camera. -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true;">
+
+        <!-- Camera with cursor for interaction -->
+        <a-entity camera look-controls>
+            <a-entity cursor="fuse: false; rayOrigin: mouse;" position="0 0 -1"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat"
+                visible="false"> <!-- Hidden because we use rayOrigin: mouse for touch/click -->
+            </a-entity>
         </a-entity>
 
         <!-- Lighting -->
@@ -28,9 +44,9 @@
         <!-- Coins will be spawned here by JS -->
         <a-entity id="coin-container"></a-entity>
 
-        </a-scene>
+    </a-scene>
 
-        <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
